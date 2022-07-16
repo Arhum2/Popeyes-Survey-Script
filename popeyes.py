@@ -25,7 +25,6 @@ date_month = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/for
 date_month.send_keys("1")
 date_month.click()
 
-time.sleep(2)
 
 date_day = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/p[7]/select[2]')
 date_day.send_keys("1")
@@ -43,4 +42,19 @@ min.click()
 period = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/p[9]/select[3]')
 period.send_keys("1")
 period.send_keys(Keys.ARROW_DOWN)
+
+# Setting amount
+amount = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/p[11]/input')
+amount.send_keys('10')
+
+# Submitting form
+submit = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/div[1]/input')
+submit.click()
+
+next_btn_form = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/div[3]/input')
+next_btn_form.click()
+
+dine_btn = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/fieldset/div/div/div[4]/span/span')
+dine_btn.click()
+
 
