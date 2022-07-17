@@ -51,10 +51,31 @@ amount.send_keys('10')
 submit = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/div[1]/input')
 submit.click()
 
-next_btn_form = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/div[3]/input')
-next_btn_form.click()
+time.sleep(2)
 
-dine_btn = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/fieldset/div/div/div[4]/span/span')
-dine_btn.click()
+next = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/div[3]/input')
+next.click()
+
+time.sleep(2)
+
+dot = browser.find_element(By.XPATH, "/html/body/div[1]/div[3]/div[2]/form/div/fieldset/div/div/div[1]/span/span")
+dot.click()
+
+time.sleep(1)
+
+next_btn = browser.find_element(By.ID, 'NextButton')
+next_btn.click()
+
+time.sleep(2)
+
+dot = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/fieldset/div/div/div[1]/span/span')
+dot.click()
+
+time.sleep(2)
+
+# Reassign next_btn because it does not seem to work otherwise
+next_btn = browser.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[2]/form/div/div[3]/input')
+next_btn.click()
+
 
 
