@@ -1,6 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from datetime import date, timedelta
 import time
 
 
@@ -25,8 +26,23 @@ store_num.send_keys('11962')
 date_month = browser.find_element(By.XPATH, '/html/body/div[3]/div/form/div/div[2]/div[2]/div[3]/div[1]/div[5]/div[3]/div/fieldset/div/div/table/tbody/tr[2]/td[2]/input')
 date_month.click()
 time.sleep(2)
-days = browser.find_element(By.TAG_NAME, 'td')
-days.click()
+
+current_day = date.today()
+target_day = current_day - timedelta(days=1)
+print(current_day)
+print(target_day)
+
+days = browser.find_elements(By.XPATH, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[6]/a')
+x = 0
+
+while(x != 31):
+    for i in days:
+        if i.get_attribute('href')==(target_day):
+            print("i: ", i.get_attribute('href'))
+            i.click()
+            break
+        else:
+            x+1
 
 # Setting time
 hour = browser.find_element(By.XPATH, '/html/body/div[3]/div/form/div/div[2]/div[2]/div[3]/div[1]/div[7]/div[3]/div/fieldset/fieldset/div/table/tbody/tr/td[3]/select')
@@ -50,10 +66,9 @@ amount = browser.find_element(By.XPATH, '/html/body/div[3]/div/form/div/div[2]/d
 amount.send_keys('10')
 
 
-time.sleep(10)
 # Submitting form
-submit = browser.find_element(By.XPATH, '/html/body/div[3]/div/form/div/div[2]/div[2]/div[3]/div[2]/input[2]')
-submit.click()
+#submit = browser.find_element(By.XPATH, '/html/body/div[3]/div/form/div/div[2]/div[2]/div[3]/div[2]/input[2]')
+#submit.click()
 
 
 
